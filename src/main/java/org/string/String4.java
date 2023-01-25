@@ -44,7 +44,8 @@ import java.util.Scanner;
  *     Big                    giB
  */
 class String4 {
-//  public ArrayList<String> solution(int n, String[] str){
+
+  //  public ArrayList<String> solution(int n, String[] str){
 //    ArrayList<String> answer=new ArrayList<>();
 //    for(String x : str){
 //      String tmp=new StringBuilder(x).reverse().toString(); // reverse()
@@ -66,40 +67,34 @@ class String4 {
 //    }
 //  }
 //
-  public ArrayList<String> solution(int n, String[] str){
+  public ArrayList<String> solution(int n, String[] str) {
     ArrayList<String> answer = new ArrayList<>();
-    for(String x : str){
-      char[] s=x.toCharArray(); // 입력받은 문자열을 Char 배열로 변경
-      int lt=0, rt=x.length()-1; // index 번호 추출
-      while(lt<rt){
-        char tmp=s[lt]; // 0번째 index부터
-        s[lt]=s[rt]; // 0번째와 마지막 index 치환
-        s[rt]=tmp; // 마지막은 첫번째로
+    for (String x : str) {
+      char[] s = x.toCharArray(); // 입력받은 문자열을 Char 배열로 변경
+      int lt = 0, rt = x.length() - 1; // index 번호 추출
+      while (lt < rt) {
+        char tmp = s[lt]; // 0번째 index부터
+        s[lt] = s[rt]; // 0번째와 마지막 index 치환
+        s[rt] = tmp; // 마지막은 첫번째로
         lt++; // 반복문 탈출
         rt--; // 반복문 탈출
       }
-      String tmp=String.valueOf(s); // String 으로 변환
+      String tmp = String.valueOf(s); // String 으로 변환
       answer.add(tmp); // 배열에 추가
     }
     return answer;
   }
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     String4 T = new String4();
     Scanner kb = new Scanner(System.in);
-    int n=kb.nextInt();
-    String[] str=new String[n];
-    for(int i=0; i<n; i++){
-      str[i]=kb.next();
+    int n = kb.nextInt();
+    String[] str = new String[n];
+    for (int i = 0; i < n; i++) {
+      str[i] = kb.next();
     }
-    for(String x : T.solution(n, str)){
+    for (String x : T.solution(n, str)) {
       System.out.println(x);
     }
   }
-}
-
-
-
-class Main {
-
 }
